@@ -17,6 +17,7 @@ public class PlayerInteract : MonoBehaviour
     public Text notEnoughCredits;
 
     public GameObject startPanel;
+    public GameObject pausePanel;
 
     private bool clearEventText;
     private bool outGame;
@@ -40,16 +41,13 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hover();
+        StartCoroutine(hover());
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
             outGame = true;
-        }
-
-        if(Input.GetMouseButton(0))
-        {
-            outGame = false;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -100,7 +98,7 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    void hover()
+    IEnumerator hover()
     {
         RaycastHit hit;
         clearEventText = true;
@@ -129,6 +127,8 @@ public class PlayerInteract : MonoBehaviour
         {
             interactEvent.text = "";
         }
+
+        yield return new WaitForSeconds(1f);
     }
 
     IEnumerator showMessage(string mess, float delay, Text panel)
@@ -177,5 +177,12 @@ public class PlayerInteract : MonoBehaviour
         }
 
         weapons[currentWeapon].SetActive(true);
+    }
+
+    public void closePauseMenu()
+    {
+        Time.timeScale = 1;
+        outGame = false;
+        pausePanel.SetActive(false);
     }
 }

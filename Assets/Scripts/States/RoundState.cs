@@ -130,9 +130,9 @@ public class RoundState : MonoBehaviour
         beginningPanel.SetActive(false);
         start = true;
 
-        PlayerManager.instance.player.gameObject.GetComponent<PlayerMovement>().enabled = true;
-        PlayerManager.instance.player.gameObject.GetComponent<MouseLook>().enabled = true;
-        PlayerManager.instance.player.gameObject.GetComponentInChildren<GunScript>().disabled = false;
+        //PlayerManager.instance.player.gameObject.GetComponent<PlayerMovement>().enabled = true;
+        //PlayerManager.instance.player.gameObject.GetComponent<MouseLook>().enabled = true;
+        //PlayerManager.instance.player.gameObject.GetComponentInChildren<GunScript>().disabled = false;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

@@ -12,7 +12,7 @@ public class SpawnState : MonoBehaviour
 
     private static double nextTimeToSpawn = 0f;
     public static double spawnRate = 0.5f;
-    public static int maxEnemies = 30;
+    public static int maxEnemies = 20;
 
     public static int activeSpawners;
 

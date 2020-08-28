@@ -24,6 +24,8 @@ public class Node : Spawner
 
     public Slider healthBar;
 
+    public Text destroyMessage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,6 +102,18 @@ public class Node : Spawner
     /// </summary>
     protected void death()
     {
+        //string mess = "";
+
+        //if(GameState.nodesAlive != 0)
+        //{
+        //    mess = "There are " + GameState.nodesAlive + " nodes left";
+        //}
+        //else
+        //{
+        //    mess = "All nodes destroyed. Portal shield down";
+        //}
+
+        //StartCoroutine(showMessage(mess, 3f, destroyMessage));
         this.destory();
         Destroy(gameObject);
     }
@@ -150,4 +164,13 @@ public class Node : Spawner
             spawn(health, drop, speed);
         }
     }
+
+    //IEnumerator showMessage(string mess, float delay, Text panel)
+    //{
+    //    panel.text = mess;
+
+    //    yield return new WaitForSeconds(delay);
+
+    //    panel.text = "";
+    //}
 }
